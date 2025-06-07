@@ -42,10 +42,12 @@ From these details, total cost for each item is calculated.
 
 ### Steps
 
-1. Clone or download the project folder from **github link**
+1. Clone or download the project folder from <https://github.com/phuongle1911/Project-Tracking-Application>
 
 2. Navigate to the project directory in your terminal
-cd path/assignment/
+   ```bash
+   cd path/16279_Le_Phuong_DEV1001_Assessment_02/src
+   ```
 
 3. Install required packages using requirments.txt:
 
@@ -56,7 +58,7 @@ cd path/assignment/
 4. Run the application:
 
    ```bash
-   python3 src/main.py
+   python main.py
    ```
 
 ## Usage
@@ -114,16 +116,8 @@ This project uses the following third-party libraries:
 
 ### Ethical and Legal Compliance
 
-All third-party libraries are used in compliance with their respective licenses. 
-Conditions of use for this project is as folllowing:<br><br>
-**Permission:**
-  - Private use
-  - Distribution for private use
-
-**Limitations:** 
-  - Warranty
-  - Liability
-
+All third-party libraries are used in compliance with their respective licenses.<br><br> 
+**Project License:** MIT License <https://github.com/phuongle1911/Project-Tracking-Application/blob/main/LICENSE>
 
 ## System Requirements
 
@@ -132,7 +126,7 @@ Conditions of use for this project is as folllowing:<br><br>
 
 ## Troubleshooting
 
-- **Error: File Not Found**: Ensure `project.json` and `incurred_cost.csv` exist in the `data/` folder with correct file name.
+- **Error: File Not Found**: Ensure `project.json` and `incurred_cost.csv` exist in the `data/` folder with correct file name. Also ensure you navigate to ' 16279_Le_Phuong_DEV1001_Assessment_02/src' path in your terminal.
 - **Invalid Input**: Follow user prompts carefully to avoid input errors.
 - **SubmitError:**: Only enter "/submit" when requested in prompt. Follow user prompts carefully to avoid this error. 
 - If you would like to edit submitted incurred cost, please open 'incurred_cost.csv' file to edit. Do not edit the first line in the file.
@@ -140,3 +134,4 @@ Conditions of use for this project is as folllowing:<br><br>
 ## Future Upgrade
 - Add feature to allow user to edit submited incurred cost in the application.
 - Add additional feature to forecast future costs and preview future remaining budget by set date. 
+- Welcome any suggestions on useful features that can be added.
