@@ -46,17 +46,29 @@ From these details, total cost for each item is calculated.
 
 2. Navigate to the project directory in your terminal
    ```bash
-   cd path/16279_Le_Phuong_DEV1001_Assessment_02/src
+   cd path/16279_Le_Phuong_DEV1001_Assessment_02
+   ```
+3. Create a virtual enviroment
+   ```bash
+   python -m venv .venv
    ```
 
-3. Install required packages using requirments.txt:
+4. Activate virtual enviroment
+   ```bash
+   source .venv/bin/activate
+   ```
+
+5. Install required packages using requirments.txt:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Run the application:
+5. Navigate to 'src' directory and run the application:
 
+   ```bash
+   cd src
+   ```
    ```bash
    python main.py
    ```
