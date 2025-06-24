@@ -27,7 +27,7 @@ class ProjectSetupInfo:
     print("Please enter cost codes and allocated cost.")
     while True:
       try:
-        code_input = UserInput(f"Code name (Enter {r'\submit'} to submit cost allocation.):")
+        code_input = UserInput(f"Code name (Enter code name to add or enter {r'\submit'} to submit cost allocation.):")
         code_name = code_input.get_input().lower()
       except SubmitError:
         total_allocated_cost = sum(cost_codes.values())
@@ -55,11 +55,6 @@ class ProjectSetupInfo:
     for key, value in self.cost_codes.items():
       cost_code_display += key + ': ' + str(value) + "\n"
     print(tabulate([["Project Name",self.project_name],["Revenue",f"${self.revenue}"],["Margin",f"{(self.margin):.2f}%"],["Total Budget",f"${self.total_budget:.2f}"],["Cost Budget Allocation",f"{cost_code_display}"]],tablefmt="rounded_grid"))
-    # print(f"Project Name: {self.project_name}")
-    # print(f"Revenue:${self.revenue}")
-    # print(f"Margin:{self.margin}%")
-    # print(f"Total Budget:${self.total_budget:.2f}")
-    # print(f"Cost Budget Allocation:{self.cost_codes}")
 
   def save_to_file(self,filename):
     with open(filename,"w") as f:
