@@ -36,5 +36,5 @@ class UserInput:
         formatted_date = dt.strftime("%A, %d %B %Y")
         return formatted_date
       except ValueError:
-        print("Incorrect date format, please try again!")
+        print("Incorrect date format or invalid date entries, please try again!")
 
