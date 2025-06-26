@@ -1,12 +1,35 @@
+import unittest
+import json
 from user_input import SubmitError, UserInput
-import Project_setup
+from Project_setup import ProjectSetupInfo
 import cost_input
 import project_summary
 
-class TestUserInput:
+class TestFileHandlingMethod(unittest.TestCase):
+  def test_save_to_json(self):
+    sample_data = ProjectSetupInfo(project_name="Ballan WTP", revenue=100000, margin=20,total_budget=80000,cost_codes={
+      'a': 50000,
+      'b': 20000,
+      'c': 10000
+    })
+    sample_data.save_to_file("test.json")
+    expected = {
+    "project_name": "Ballan WTP",
+    "revenue": 100000,
+    "margin": 20,
+    "total_budget": 80000,
+    "cost_codes": {
+        "a": 50000,
+        "b": 20000,
+        "c": 10000
+    }
+}
+    with open("test.json","r") as f:
+      result = json.load(f)
+    self.assertEqual(expected,result)
 
-  def test_normal_input(self):
-    user_input = UserInput("Testing prompt")
-    assert user_input.get_input() == "Testing prompt"
+if __name__ == '__main__':
+  unittest.main()
+
   
-  
+
