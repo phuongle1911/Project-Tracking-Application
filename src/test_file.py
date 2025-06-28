@@ -30,7 +30,7 @@ class TestFileHandlingMethod(unittest.TestCase):
     self.assertEqual(expected,result)
 
 class TestUserInput(unittest.TestCase):
-  @patch('builtins.input',side_effect = ['some texts', r'\submit'])
+  @patch('builtins.input',side_effect = ['some texts', r'\submit', r'\q'])
   def test_get_input(self,mock_input):
     ui1 = UserInput("Enter something:")
     result1 = ui1.get_input()
@@ -40,13 +40,16 @@ class TestUserInput(unittest.TestCase):
     with self.assertRaises(SubmitError):
       ui2.get_input()
 
+    ui3 = UserInput("Enter input 3:")
+    with self.assertRaises(SystemExit):
+      ui3.get_input()
+
    
 
 
 
 
-if __name__ == '__main__':
-  unittest.main()
+
 
   
 
