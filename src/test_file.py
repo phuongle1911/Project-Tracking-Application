@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 import json
 from user_input import SubmitError, UserInput
 from Project_setup import ProjectSetupInfo
@@ -27,6 +28,22 @@ class TestFileHandlingMethod(unittest.TestCase):
     with open("test.json","r") as f:
       result = json.load(f)
     self.assertEqual(expected,result)
+
+class TestUserInput(unittest.TestCase):
+  @patch('builtins.input',side_effect = ['some texts', r'\submit'])
+  def test_get_input(self,mock_input):
+    ui1 = UserInput("Enter something:")
+    result1 = ui1.get_input()
+    self.assertEqual(result1,'some texts')
+
+    ui2 = UserInput("Enter input 2:")
+    with self.assertRaises(SubmitError):
+      ui2.get_input()
+
+   
+
+
+
 
 if __name__ == '__main__':
   unittest.main()
