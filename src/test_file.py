@@ -53,8 +53,6 @@ class TestCalculation:
     (5245.46, 15, 4458.64)
     ])
   def test_budget_calculation(self,revenue, margin, expected):
-    # revenue = 125473.43
-    # margin = 22.00
     result = budget_calculation(revenue, margin)
     assert pytest.approx(result,rel=1e-2) == expected
    

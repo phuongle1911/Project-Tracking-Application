@@ -4,6 +4,8 @@ from datetime import datetime
 class SubmitError(Exception):
   pass
 
+class NegativeNumberError(Exception):
+  pass
 class UserInput:
   def __init__(self,prompt):
     self.prompt = prompt
@@ -21,11 +23,16 @@ class UserInput:
       user_input = self.get_input().strip()
       if '%' in user_input:
         user_input=user_input.replace('%','')
+      
       try: 
         result = float(user_input)
+        if result <= 0:
+          raise NegativeNumberError
         return result
       except ValueError:
         print("That is not a number, please try again")
+      except NegativeNumberError:
+        print("Number input must be greater than 0, please try again")
   
   def get_date(self):
     while True:

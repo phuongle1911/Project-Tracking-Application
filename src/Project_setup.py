@@ -47,11 +47,11 @@ class ProjectSetupInfo:
       
       code_value_input = UserInput(f"Allocate budget for cost code '{code_name}'($):")
       code_value = code_value_input.get_num()
-      if code_value > 0:
-        print(f"{code_name}: {code_value}")
-        cost_codes[code_name]=code_value
-      else:
-        print("Allocated cost must be more than 0, please try again!")
+      # if code_value > 0:
+      print(f"{code_name}: {code_value}")
+      cost_codes[code_name]=code_value
+      # else:
+      #   print("Allocated cost must be more than 0, please try again!")
     return cls(project_name, revenue, margin, total_budget, cost_codes)
   
   def display(self): 
