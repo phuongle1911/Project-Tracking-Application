@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 import json
 from user_input import SubmitError, UserInput
-from Project_setup import ProjectSetupInfo, float_deduction
+from Project_setup import ProjectSetupInfo, budget_calculation
 import cost_input
 import project_summary
 
@@ -44,10 +44,12 @@ class TestUserInput(unittest.TestCase):
     with self.assertRaises(SystemExit):
       ui3.get_input()
 
-def test_float_deduction():
-  a = 12.4568392034
-  b = 12.3245563647283
-  assert float_deduction(a,b) > 0.1
+class TestCalculation(unittest.TestCase):
+  def test_budget_calculation(self):
+    revenue = 125473.43
+    margin = 22.00
+    result = budget_calculation(revenue, margin)
+    self.assertAlmostEqual(97869.275,result,places=2)
    
 
 
