@@ -5,6 +5,7 @@ from user_input import SubmitError, UserInput
 from Project_setup import ProjectSetupInfo, budget_calculation
 import cost_input
 import project_summary
+import pytest
 
 # class TestFileHandlingMethod(unittest.TestCase):
 #   def test_save_to_json(self):
@@ -44,12 +45,18 @@ class TestUserInput(unittest.TestCase):
     with self.assertRaises(SystemExit):
       ui3.get_input()
 
-class TestCalculation(unittest.TestCase):
-  def test_budget_calculation(self):
-    revenue = 125473.43
-    margin = 22.00
+class TestCalculation:
+
+  @pytest.mark.parametrize("revenue, margin, expected",[
+    (125473.43, 22, 97869.275),
+    (540000, 22.55, 418230),
+    (5245.46, 15, 4458.64)
+    ])
+  def test_budget_calculation(self,revenue, margin, expected):
+    # revenue = 125473.43
+    # margin = 22.00
     result = budget_calculation(revenue, margin)
-    self.assertAlmostEqual(97869.275,result,places=2)
+    assert pytest.approx(result,rel=1e-2) == expected
    
 
 
