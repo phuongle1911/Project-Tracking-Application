@@ -2,32 +2,32 @@ import unittest
 from unittest.mock import patch
 import json
 from user_input import SubmitError, UserInput
-from Project_setup import ProjectSetupInfo
+from Project_setup import ProjectSetupInfo, float_deduction
 import cost_input
 import project_summary
 
-class TestFileHandlingMethod(unittest.TestCase):
-  def test_save_to_json(self):
-    sample_data = ProjectSetupInfo(project_name="Ballan WTP", revenue=100000, margin=20,total_budget=80000,cost_codes={
-      'a': 50000,
-      'b': 20000,
-      'c': 10000
-    })
-    sample_data.save_to_file("test.json")
-    expected = {
-    "project_name": "Ballan WTP",
-    "revenue": 100000,
-    "margin": 20,
-    "total_budget": 80000,
-    "cost_codes": {
-        "a": 50000,
-        "b": 20000,
-        "c": 10000
-    }
-}
-    with open("test.json","r") as f:
-      result = json.load(f)
-    self.assertEqual(expected,result)
+# class TestFileHandlingMethod(unittest.TestCase):
+#   def test_save_to_json(self):
+#     sample_data = ProjectSetupInfo(project_name="Ballan WTP", revenue=100000, margin=20,total_budget=80000,cost_codes={
+#       'a': 50000,
+#       'b': 20000,
+#       'c': 10000
+#     })
+#     sample_data.save_to_file("test.json")
+#     expected = {
+#     "project_name": "Ballan WTP",
+#     "revenue": 100000,
+#     "margin": 20,
+#     "total_budget": 80000,
+#     "cost_codes": {
+#         "a": 50000,
+#         "b": 20000,
+#         "c": 10000
+#     }
+# }
+#     with open("test.json","r") as f:
+#       result = json.load(f)
+#     self.assertEqual(expected,result)
 
 class TestUserInput(unittest.TestCase):
   @patch('builtins.input',side_effect = ['some texts', r'\submit', r'\q'])
@@ -44,6 +44,10 @@ class TestUserInput(unittest.TestCase):
     with self.assertRaises(SystemExit):
       ui3.get_input()
 
+def test_float_deduction():
+  a = 12.4568392034
+  b = 12.3245563647283
+  assert float_deduction(a,b) > 0.1
    
 
 

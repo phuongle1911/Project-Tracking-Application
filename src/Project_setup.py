@@ -2,6 +2,10 @@ import json
 from tabulate import tabulate
 from user_input import UserInput, SubmitError
 
+def budget_calculation(revenue, margin):
+  budget = revenue*(1-margin/100)
+  return budget
+
 class ProjectSetupInfo:
   def __init__(self, project_name, revenue, margin, total_budget, cost_codes):
     self.project_name = project_name
@@ -19,7 +23,7 @@ class ProjectSetupInfo:
     revenue = revenue_input.get_num()
     margin_input = UserInput("Margin (%):") 
     margin = margin_input.get_num()
-    total_budget=revenue*(1-margin/100)
+    total_budget=budget_calculation(revenue, margin)
     print(f"Project total budget is:{total_budget:.2f}")
 
     cost_codes = {}
