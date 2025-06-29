@@ -35,10 +35,10 @@ class ProjectSetupInfo:
         code_name = code_input.get_input().lower()
       except SubmitError:
         total_allocated_cost = sum(cost_codes.values())
-        if (total_allocated_cost - total_budget) > 0.1: #fix float issue
+        if (total_allocated_cost - total_budget) > 0.1: 
           print(f"Total allocated cost exceeds total budget by ${(total_allocated_cost-total_budget):.2f}. Allocated cost has to be equal to project budget. Please try again!")
           continue
-        elif (total_budget-total_allocated_cost) > 0.1: # fix float issue
+        elif (total_budget-total_allocated_cost) > 0.1: 
           print(f"There is remaining ${(total_budget - total_allocated_cost):.2f} has not been allocated. Please allocate the remaining amount.")
           continue
         else:
@@ -47,11 +47,8 @@ class ProjectSetupInfo:
       
       code_value_input = UserInput(f"Allocate budget for cost code '{code_name}'($):")
       code_value = code_value_input.get_num()
-      # if code_value > 0:
       print(f"{code_name}: {code_value}")
       cost_codes[code_name]=code_value
-      # else:
-      #   print("Allocated cost must be more than 0, please try again!")
     return cls(project_name, revenue, margin, total_budget, cost_codes)
   
   def display(self): 

@@ -23,7 +23,6 @@ class UserInput:
       user_input = self.get_input().strip()
       if '%' in user_input:
         user_input=user_input.replace('%','')
-      
       try: 
         result = float(user_input)
         if result <= 0:
