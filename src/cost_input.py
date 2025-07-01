@@ -2,7 +2,6 @@ from Project_setup import ProjectSetupInfo
 from user_input import UserInput, SubmitError
 import csv
 import pandas as pd
-# from tabulate import tabulate
 
 def dict_add(key,value,dictionary):
   dictionary[key] = value
@@ -23,14 +22,15 @@ class CostInfo:
     return i
   
   @staticmethod
-  def select_cost_code(cost_codes):#fuction to select one of key value in a dictionary
+  def select_cost_code(cost_codes):#fuction to select one of the key in a dictionary
     print("Allocate your cost into one of the cost code below:")
+    cost_codes_lower = map(lambda x: x.lower(), cost_codes.keys())
     for code in cost_codes.keys():
       print(code)
     while True:
       select_code_input = UserInput("Which cost code you want to select?:")
       select_code = select_code_input.get_input()
-      if select_code.lower() in cost_codes.keys():
+      if select_code.lower() in cost_codes_lower():
         print(f"Cost code {select_code} is selected!")
         return select_code
       else:
@@ -90,8 +90,7 @@ class CostInfo:
       table = list(reader)
     return table
 
-#edit submited incurred cost
-# def edit_cost(cost_list):
+
 
 
 

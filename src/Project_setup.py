@@ -36,7 +36,7 @@ class ProjectSetupInfo:
       except SubmitError:
         total_allocated_cost = sum(cost_codes.values())
         if (total_allocated_cost - total_budget) > 0.1: 
-          print(f"Total allocated cost exceeds total budget by ${(total_allocated_cost-total_budget):.2f}. Allocated cost has to be equal to project budget. Please try again!")
+          print(f"Total allocated cost exceeds total budget by ${(total_allocated_cost-total_budget):.2f}. Allocated costs have to be equal to project budget. Please try again!")
           continue
         elif (total_budget-total_allocated_cost) > 0.1: 
           print(f"There is remaining ${(total_budget - total_allocated_cost):.2f} has not been allocated. Please allocate the remaining amount.")
@@ -55,7 +55,7 @@ class ProjectSetupInfo:
     cost_code_display = ""
     for key, value in self.cost_codes.items():
       cost_code_display += key + ': ' + str(value) + "\n"
-    print(tabulate([["Project Name",self.project_name],["Revenue",f"${self.revenue}"],["Margin",f"{(self.margin):.2f}%"],["Total Budget",f"${self.total_budget:.2f}"],["Cost Budget Allocation",f"{cost_code_display}"]],tablefmt="rounded_grid"))
+    print(tabulate([["Project Name",self.project_name],["Revenue",f"${self.revenue}"],["Margin",f"{(self.margin):.2f}%"],["Total Budget",f"${self.total_budget:.2f}"],["Cost Allocation",f"{cost_code_display}"]],tablefmt="rounded_grid"))
 
   def save_to_file(self,filename):
     with open(filename,"w") as f:
