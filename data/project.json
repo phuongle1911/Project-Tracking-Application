@@ -1,12 +1,12 @@
 {
-    "project_name": "Ballan",
-    "revenue": 230000.0,
+    "project_name": "ehvas",
+    "revenue": 34500.0,
     "margin": 20.0,
-    "total_budget": 184000.0,
+    "total_budget": 27600.0,
     "cost_codes": {
-        "a": 50000.0,
-        "b": 70000.0,
-        "c": 40000.0,
-        "d": 24000.0
+        "a": 3400.0,
+        "b": 20000.0,
+        "c": 1.0,
+        "d": 4199.0
     }
 }
